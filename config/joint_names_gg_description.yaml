@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'gg_lw_joint', 'gg_rw_joint', 'gg_head_joint', 'gg_rsh1_joint', 'gg_rsh2_joint', 'gg_rup_joint', 'gg_rfo_joint', 'gg_rwr1_joint', 'gg_rwr2_joint', 'gg_rff_joint', 'gg_rfr_joint', 'gg_lsh1_joint', 'gg_lsh2_joint', 'gg_lup_joint', 'gg_lfo_joint', 'gg_lwr1_joint', 'gg_lwr2_joint', 'gg_lff_joint', 'gg_lfr_joint', ]
