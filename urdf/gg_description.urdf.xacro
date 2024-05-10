@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="gg">
+  
+  <xacro:arg name="left_arm" default="true"/>
+  <xacro:arg name="right_arm" default="true"/>
+  <!-- pretty important for stability -->
+  <xacro:property name="damping" value="0" />
+  <xacro:property name="friction" value="0.1" />
+
+  <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
+    
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+  </joint>
+
+  <!-- BASE-LINK -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00087670707441645 -0.000134893526176572 0.129521903663046"
+        rpy="0 0 0" />
+      <mass
+        value="12.650328257387" />
+      <inertia
+        ixx="0.3743375907921"
+        ixy="-1.25191226255394E-05"
+        ixz="-0.00234555565491785"
+        iyy="0.378308274776804"
+        iyz="-0.00013948799356669"
+        izz="0.443889564061725" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="gg_lw_Link">
+    <inertial>
+      <origin
+        xyz="-9.54791801177635E-15 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.061890862640772" />
+      <inertia
+        ixx="8.04435168188267E-05"
+        ixy="-7.27153458578974E-36"
+        ixz="4.35593139278978E-35"
+        iyy="0.000112073295576422"
+        iyz="1.00298565734457E-19"
+        izz="8.04435168188267E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lw_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lw_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lw_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.2225 0.0228"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_lw_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rw_Link">
+    <inertial>
+      <origin
+        xyz="4.21884749357559E-15 2.22044604925031E-16 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0618908626407721" />
+      <inertia
+        ixx="8.04435168188268E-05"
+        ixy="-1.62836134705691E-35"
+        ixz="2.85140354730484E-35"
+        iyy="0.000112073295576423"
+        iyz="1.00298565734457E-19"
+        izz="8.04435168188268E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rw_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rw_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rw_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.222500000000033 0.0227999999999976"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_rw_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_fp_Link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.105739306655505" />
+      <inertia
+        ixx="4.07213383852693E-05"
+        ixy="0"
+        ixz="0"
+        iyy="4.07213383852693E-05"
+        iyz="0"
+        izz="4.07213383852693E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_fp_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_fp_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_fp_joint"
+    type="fixed">
+    <origin
+      xyz="0.2225 0 -0.00320000000000079"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_fp_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_rp_Link">
+    <inertial>
+      <origin
+        xyz="7.32747196252603E-15 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.105739306655505" />
+      <inertia
+        ixx="4.07213383852693E-05"
+        ixy="0"
+        ixz="0"
+        iyy="4.07213383852693E-05"
+        iyz="0"
+        izz="4.07213383852693E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rp_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rp_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rp_joint"
+    type="fixed">
+    <origin
+      xyz="-0.226791899422913 0 -0.00319999999999801"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_rp_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_laser_Link">
+    <inertial>
+      <origin
+        xyz="-0.000163032244300587 -4.41813252649581E-13 -0.0264786679595439"
+        rpy="0 0 0" />
+      <mass
+        value="0.144890835814023" />
+      <inertia
+        ixx="7.63975905774395E-05"
+        ixy="-3.43064130820371E-16"
+        ixz="5.49231602354192E-07"
+        iyy="7.69075614466373E-05"
+        iyz="2.21414439949515E-14"
+        izz="5.05011582230962E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_laser_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_laser_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_laser_joint"
+    type="fixed">
+    <origin
+      xyz="0.209118508553583 0 0.101300000000011"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_laser_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_cam1_Link">
+    <inertial>
+      <origin
+        xyz="-0.00608566765043428 1.11022302462516E-16 -0.025707145079938"
+        rpy="0 0 0" />
+      <mass
+        value="0.049571006742289" />
+      <inertia
+        ixx="1.54209195929442E-05"
+        ixy="4.26459949268379E-20"
+        ixz="5.33148997740382E-06"
+        iyy="0.000125140284824981"
+        iyz="-3.54577656365757E-22"
+        izz="0.00011963652209279" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_cam1_joint"
+    type="fixed">
+    <origin
+      xyz="0.259496131718395 0.0361385390106069 0.161999999999998"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_cam1_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_cam2_Link">
+    <inertial>
+      <origin
+        xyz="0.00108786663322763 -0.000201032384153033 -0.0187798361475048"
+        rpy="0 0 0" />
+      <mass
+        value="0.160828442414892" />
+      <inertia
+        ixx="2.52714835901354E-05"
+        ixy="9.2835171138927E-09"
+        ixz="5.72311720896949E-07"
+        iyy="0.000434489511612229"
+        iyz="1.46849874663095E-08"
+        izz="0.000427231940538994" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_cam2_joint"
+    type="fixed">
+    <origin
+      xyz="0.0805726042816627 -0.00137926838632108 1.03855512604048"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_cam2_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_head_Link">
+    <inertial>
+      <origin
+        xyz="0.0157083816590583 0.000196683267197684 0.136187769609681"
+        rpy="0 0 0" />
+      <mass
+        value="0.713863501614828" />
+      <inertia
+        ixx="0.00475971491279427"
+        ixy="2.30763354351006E-06"
+        ixz="-0.000111949358608975"
+        iyy="0.00323474428634301"
+        iyz="-3.52269559546706E-07"
+        izz="0.00330513482373154" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_head_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_head_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_head_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 1.106"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_head_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.3925"
+      upper="-0.3925"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_cam3_Link">
+    <inertial>
+      <origin
+        xyz="2.07692891773803E-08 -0.00179304047114992 -0.0086330039275947"
+        rpy="0 0 0" />
+      <mass
+        value="0.00288615905957832" />
+      <inertia
+        ixx="1.49885370606353E-07"
+        ixy="4.61954798781525E-14"
+        ixz="-4.12754657281223E-14"
+        iyy="1.22145355044454E-07"
+        iyz="-1.92017046745121E-08"
+        izz="1.6704201249208E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_cam3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_cam3_joint"
+    type="fixed">
+    <origin
+      xyz="0.0770202621633423 0.00144048739006003 0.192546394658118"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="gg_head_Link" />
+    <child
+      link="gg_cam3_Link" />
+    <axis
+      xyz="0 0 0.999999999997106" />
+  </joint>
+
+  <!-- Right Arm Links -->
+  <xacro:if value="$(arg right_arm)">
+  <link
+    name="gg_rsh1_Link">
+    <inertial>
+      <origin
+        xyz="8.18131384860976E-09 1.69344732681154E-08 0.0175032164290977"
+        rpy="0 0 0" />
+      <mass
+        value="0.0381303823374811" />
+      <inertia
+        ixx="3.59625774466967E-05"
+        ixy="8.7817335490912E-10"
+        ixz="5.16529323543741E-11"
+        iyy="2.30670245307998E-05"
+        iyz="-1.42460588813036E-11"
+        izz="3.63431445156976E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rsh1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rsh1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rsh1_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.18984 0.97435"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_rsh1_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="3.1416"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rsh2_Link">
+    <inertial>
+      <origin
+        xyz="0.0419429149642356 -2.68905076272752E-06 3.56683808377944E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0248848374342612" />
+      <inertia
+        ixx="1.30396985610604E-05"
+        ixy="-1.11524570643438E-10"
+        ixz="2.23505469138815E-10"
+        iyy="6.79317648943525E-06"
+        iyz="-2.71985954880275E-10"
+        izz="7.49518502375986E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rsh2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rsh2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rsh2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0425000008690849"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="gg_rsh1_Link" />
+    <child
+      link="gg_rsh2_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rup_Link">
+    <inertial>
+      <origin
+        xyz="-0.0134580824206121 0.00559925490584134 0.115285754057479"
+        rpy="0 0 0" />
+      <mass
+        value="0.186512140859523" />
+      <inertia
+        ixx="0.0010968548819787"
+        ixy="3.66894254551335E-08"
+        ixz="-1.63421546598697E-08"
+        iyy="0.00101486771744197"
+        iyz="7.6010344481468E-05"
+        izz="0.000252652799336481" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rup_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rup_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rup_joint"
+    type="revolute">
+    <origin
+      xyz="0.0525020799566041 0.0134600008776389 0"
+      rpy="1.5707963267949 0 1.57079632889709" />
+    <parent
+      link="gg_rsh2_Link" />
+    <child
+      link="gg_rup_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rfo_Link">
+    <inertial>
+      <origin
+        xyz="-0.00636392874628855 0.0443187792850652 -0.0134108846717047"
+        rpy="0 0 0" />
+      <mass
+        value="0.078708037980908" />
+      <inertia
+        ixx="0.000142501417323633"
+        ixy="-2.85076611405841E-05"
+        ixz="-3.54279459871569E-09"
+        iyy="8.45415887824212E-05"
+        iyz="3.29103853992219E-09"
+        izz="0.000143444548402331" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rfo_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rfo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rfo_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.257097917271541"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="gg_rup_Link" />
+    <child
+      link="gg_rfo_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="2.1817"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rwr1_Link">
+    <inertial>
+      <origin
+        xyz="0.000960346520169852 -4.09349725652985E-05 -0.0749380923489797"
+        rpy="0 0 0" />
+      <mass
+        value="0.11389315133205" />
+      <inertia
+        ixx="0.000119267874430709"
+        ixy="7.97246981145315E-09"
+        ixz="-1.56203889051018E-06"
+        iyy="0.000129201425035623"
+        iyz="-1.25420855390573E-07"
+        izz="5.4605410730218E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rwr1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rwr1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rwr1_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0944000009584798 -0.0134600007672695"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="gg_rfo_Link" />
+    <child
+      link="gg_rwr1_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.618"
+      upper="2.618"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rwr2_Link">
+    <inertial>
+      <origin
+        xyz="5.27035959831945E-05 0.0149429972956123 -0.000477296526397386"
+        rpy="0 0 0" />
+      <mass
+        value="9.51863081125802E-06" />
+      <inertia
+        ixx="4.4447503945275E-09"
+        ixy="5.55003931203248E-12"
+        ixz="5.2946687568552E-14"
+        iyy="5.82329186061077E-09"
+        iyz="3.73101441494862E-12"
+        izz="3.84018286041126E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rwr2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rwr2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rwr2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.11755"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="gg_rwr1_Link" />
+    <child
+      link="gg_rwr2_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2217"
+      upper="1.2217"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+    
+  </joint>
+  <link
+    name="gg_rbaseha_Link">
+    <inertial>
+      <origin
+        xyz="-3.46662190466862E-05 -0.00143531076907066 0.00106282905844968"
+        rpy="0 0 0" />
+      <mass
+        value="0.0288403504387064" />
+      <inertia
+        ixx="4.83725908281321E-06"
+        ixy="4.14903498339935E-09"
+        ixz="1.68331968166638E-09"
+        iyy="6.93893759256986E-06"
+        iyz="1.15975580281495E-07"
+        izz="5.07061471926491E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rbaseha_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rbaseha_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rbaseha_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.0386368164576881 0"
+      rpy="0 0 0" />
+    <parent
+      link="gg_rwr2_Link" />
+    <child
+      link="gg_rbaseha_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_rff_Link">
+    <inertial>
+      <origin
+        xyz="0.00939550629777475 -2.83237858456076E-06 0.0340069487151574"
+        rpy="0 0 0" />
+      <mass
+        value="0.024481616476187" />
+      <inertia
+        ixx="1.04726803527831E-05"
+        ixy="2.82637263258838E-10"
+        ixz="-9.62509894843006E-08"
+        iyy="5.79799511163099E-06"
+        iyz="-6.73202258873545E-11"
+        izz="7.03589541366527E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rff_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rff_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rff_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0100020709762965 0.063891720357569 -0.00136312082810863"
+      rpy="1.55644753044553 0 0" />
+    <parent
+      link="gg_rbaseha_Link" />
+    <child
+      link="gg_rff_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.02"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_rfr_Link">
+    <inertial>
+      <origin
+        xyz="0.00939553269660132 -0.000563990601135433 0.0340025958410232"
+        rpy="0 0 0" />
+      <mass
+        value="0.0244814918278841" />
+      <inertia
+        ixx="1.04724702119457E-05"
+        ixy="1.66324895414296E-09"
+        ixz="-9.62280058819903E-08"
+        iyy="5.79805172935487E-06"
+        iyz="-1.78314521454913E-08"
+        izz="7.03562682326511E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rfr_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_rfr_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_rfr_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.010005 0.063892 -0.0013631"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="gg_rbaseha_Link" />
+    <child
+      link="gg_rfr_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.02"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  </xacro:if>
+
+  <!-- Left Arm Links -->
+
+  <xacro:if value="$(arg left_arm)">
+  <link
+    name="gg_lsh1_Link">
+    <inertial>
+      <origin
+        xyz="-8.14446443619943E-09 2.71893079162311E-08 -0.0175032164290977"
+        rpy="0 0 0" />
+      <mass
+        value="0.0381303823374847" />
+      <inertia
+        ixx="3.59625774466957E-05"
+        ixy="-8.782004901661E-10"
+        ixz="5.1652066670528E-11"
+        iyy="2.30670245308033E-05"
+        iyz="1.30351481865151E-11"
+        izz="3.63431445157019E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lsh1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lsh1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lsh1_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.189839999999998 0.974352062277305"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gg_lsh1_Link" />
+    <axis
+      xyz="-1.65185565703954E-05 0 -0.999999999863569" />
+    <limit
+      lower="-1.5708"
+      upper="3.1416"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lsh2_Link">
+    <inertial>
+      <origin
+        xyz="0.0403929904725797 1.40690178659364E-05 3.54217267184431E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0248848009097077" />
+      <inertia
+        ixx="1.30396546158409E-05"
+        ixy="-1.10434393732099E-10"
+        ixz="2.23998906533502E-10"
+        iyy="6.79313876074864E-06"
+        iyz="-2.47303233758556E-10"
+        izz="7.49518433835214E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lsh2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lsh2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lsh2_joint"
+    type="revolute">
+    <origin
+      xyz="0.00154990979692626 0 -0.0424832768576723"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="gg_lsh1_Link" />
+    <child
+      link="gg_lsh2_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lup_Link">
+    <inertial>
+      <origin
+        xyz="-1.91755366957258E-06 -0.00559925229167701 0.113588534330144"
+        rpy="0 0 0" />
+      <mass
+        value="0.186512208420852" />
+      <inertia
+        ixx="0.00109685612254701"
+        ixy="3.66596457877962E-08"
+        ixz="1.64266736344448E-08"
+        iyy="0.0010148681282286"
+        iyz="-7.60102013124441E-05"
+        izz="0.000252653648190317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lup_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lup_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lup_joint"
+    type="revolute">
+    <origin
+      xyz="0.0526493868628737 1.67223669861882E-05 0"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="gg_lsh2_Link" />
+    <child
+      link="gg_lup_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lfo_Link">
+    <inertial>
+      <origin
+        xyz="-0.00636412444299728 -0.0443193301436605 -4.90513516736291E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0787080680556365" />
+      <inertia
+        ixx="0.000142500626377126"
+        ixy="2.85074890657573E-05"
+        ixz="3.58942783714796E-09"
+        iyy="8.45403839853453E-05"
+        iyz="3.31320535737995E-09"
+        izz="0.000143443932964028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lfo_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lfo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lfo_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.255399998394072"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="gg_lup_Link" />
+    <child
+      link="gg_lfo_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="2.1817"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lwr1_Link">
+    <inertial>
+      <origin
+        xyz="0.000960367443756494 4.09327990248676E-05 0.0749387972708226"
+        rpy="0 0 0" />
+      <mass
+        value="0.113893162625388" />
+      <inertia
+        ixx="0.000119267877078213"
+        ixy="-7.97363485965435E-09"
+        ixz="1.56203894566025E-06"
+        iyy="0.000129201426467251"
+        iyz="-1.25420722931249E-07"
+        izz="5.46054135122238E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lwr1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lwr1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lwr1_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0944000013387671 0"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="gg_lfo_Link" />
+    <child
+      link="gg_lwr1_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.618"
+      upper="2.618"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lwr2_Link">
+    <inertial>
+      <origin
+        xyz="5.25547150048711E-05 -0.0149437167109086 0.000477116749709544"
+        rpy="0 0 0" />
+      <mass
+        value="9.51875564799266E-06" />
+      <inertia
+        ixx="4.44477237002039E-09"
+        ixy="-5.55123140554893E-12"
+        ixz="-7.47720553782032E-14"
+        iyy="5.82333866745832E-09"
+        iyz="3.73108068466697E-12"
+        izz="3.84020974400786E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lwr2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lwr2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lwr2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.117549998791541"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="gg_lwr1_Link" />
+    <child
+      link="gg_lwr2_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2217"
+      upper="1.2217"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lbaseha_Link">
+    <inertial>
+      <origin
+        xyz="-3.46443770958826E-05 0.00138606765821769 -0.00106936975719524"
+        rpy="0 0 0" />
+      <mass
+        value="0.0288403474642093" />
+      <inertia
+        ixx="4.83725868223061E-06"
+        ixy="-4.20069787582921E-09"
+        ixz="-1.54992521668011E-09"
+        iyy="6.94443668469871E-06"
+        iyz="5.60835825737299E-08"
+        izz="5.06511522825688E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lbaseha_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lbaseha_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lbaseha_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.0386368164576881 0"
+      rpy="0 0 0" />
+    <parent
+      link="gg_lwr2_Link" />
+    <child
+      link="gg_lbaseha_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gg_lff_Link">
+    <inertial>
+      <origin
+        xyz="0.0093955080299607 0.00157113871445155 0.0339706389707615"
+        rpy="0 0 0" />
+      <mass
+        value="0.0244816183889169" />
+      <inertia
+        ixx="1.04726784863631E-05"
+        ixy="-4.17226742466384E-09"
+        ixz="-9.61612586827225E-08"
+        iyy="5.80064271716413E-06"
+        iyz="5.71683263537019E-08"
+        izz="7.03324782854151E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lff_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lff_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lff_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0100011053706025 -0.0638301184763955 0.00344229451811068"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="gg_lbaseha_Link" />
+    <child
+      link="gg_lff_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.02"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  <link
+    name="gg_lfr_Link">
+    <inertial>
+      <origin
+        xyz="0.0093955347572251 -0.00157677606487289 0.0339700251461681"
+        rpy="0 0 0" />
+      <mass
+        value="0.0244814767725134" />
+      <inertia
+        ixx="1.04724632417437E-05"
+        ixy="4.73622835691414E-09"
+        ixz="-9.61256707192296E-08"
+        iyy="5.80045400567467E-06"
+        iyz="-5.73117167567454E-08"
+        izz="7.03321890484212E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lfr_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gg_description/meshes/gg_lfr_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gg_lfr_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.00999824554758277 -0.0638329160811288 0.00336911913045193"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="gg_lbaseha_Link" />
+    <child
+      link="gg_lfr_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.02"
+      effort="10.0"
+      velocity="0" />
+    <dynamics 
+      damping="${damping}" 
+      friction="${friction}" />
+  </joint>
+  </xacro:if>
+
+</robot>
